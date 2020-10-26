@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Operators
 {
     class Program
-    {
+    {   
+        static double CirArea(double radius, double pi)
+        {
+            double rad2 = radius * radius;
+            double area = pi * rad2;
+            return area;
+        }
         static void Main(string[] args)
         {
             int x = 8;
@@ -21,9 +28,10 @@ namespace Operators
             Console.WriteLine("to find the radius of a circle we use the formula \n" +
                 "pi (3.14~) times the radius squared");
             Console.WriteLine("what is the radius of your circle?");
-            var radius = double.Parse(Console.ReadLine());
-            var rsquared = radius * radius;
-            Console.WriteLine($"if your circle has a radius of {radius} it will have an area of {3.14 * rsquared}.");
+            double pi = 3.14;
+            double radius = double.Parse(Console.ReadLine());
+            var ar = Program.CirArea(radius, pi);
+            Console.WriteLine($"if your circle has a radius of {radius} it will have an area of {ar}.");
         }
     }
 }
